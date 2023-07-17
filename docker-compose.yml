@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    networks:
+      - website_network
+
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    networks:
+      - mysql_network
+
+networks:
+  website_network:
+  mysql_network:
+
+
+
+
+
